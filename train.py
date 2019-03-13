@@ -53,7 +53,7 @@ if __name__ == "__main__":
     batch_size = args.batch_size
     do_logging = args.do_logging
     logging_file = args.logging_file
-    lr = args.lr;
+    lr = args.lr
     momentum = args.momentum
     weight_decay = args.weight_decay
     epochs = range(args.epochs)
@@ -90,13 +90,14 @@ if __name__ == "__main__":
     # Initialize a record to store loss history: # epochs X # batches X # classes
     num_batch = int(np.ceil(len(data_loader.dataset) / batch_size))
     loss_history = np.zeros((len(epochs), num_batch, num_classes))
-
+    print("intialize OK")
     # Loop over epoch
     for epoch in epochs:
         
         # Log epoch idx
         if do_logging:
             logging.info('Running epoch = %d' % epoch)
+            print('Running epoch=%d' %epoch)
         
         # Learning rate varies with epoch
         for group in optimizer.param_groups:
